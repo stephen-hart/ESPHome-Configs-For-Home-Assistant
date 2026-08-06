@@ -16,9 +16,23 @@ sensor:
     mac_address: 49:25:05:12:01:90
     temperature:
       name: "Pool Temperature"
+      on_value:
+        - output.turn_on: onboard_led
+        - delay: 200ms
+        - output.turn_off: onboard_led
     battery_level:
       name: "Inkbird IBS-TH1 Battery Level"
-      
+      on_value:
+        - output.turn_on: onboard_led
+        - delay: 200ms
+        - output.turn_off: onboard_led
+
+# Onboard LED (GPIO2 on ELEGOO ESP-WROOM-32) — flashes briefly each time a sensor reading is sent
+output:
+  - platform: gpio
+    pin: GPIO2
+    id: onboard_led
+
 # Enable logging
 logger:
 
