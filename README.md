@@ -5,5 +5,6 @@ Current inclusions:
 
 - ESP32-CAM
 - Raspberry Pi Pico with BME280 in I2C mode
+- Raspberry Pi Pico with DHT11 Temperature Sensor
 - Inkbird IBS-P01B temperature sensor
 - Touchscreen control on ESP32-2432S028 CYD touchscreen
