@@ -1,0 +1,38 @@
+# Board: Raspberry Pi Pico W
+# Definition: definitions/boards/rpipicow/manifest.yaml
+
+esphome:
+  name: rpi-pico-with-dht11-temperature-sensor
+  friendly_name: RPI Pico with DHT11 Temperature Sensor
+
+rp2:
+  board: rpipicow
+
+logger:
+
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: Den Temperature Fallback Hotspot
+    password: !secret ap_password
+
+captive_portal:
+
+sensor:
+  - platform: dht
+    pin: GPIO22
+    model: DHT11
+    temperature:
+      name: "Temperature"
+    humidity:
+      name: "Humidity"
+    update_interval: 60s
